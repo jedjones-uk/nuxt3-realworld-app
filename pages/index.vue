@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ARTICLES_PER_PAGE } from '~/lib/constants'
+const  ARTICLES_PER_PAGE = 5;
 
 definePageMeta({
   alias: ['/signin/callback', '/feed'],

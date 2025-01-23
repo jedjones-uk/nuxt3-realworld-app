@@ -1,9 +1,11 @@
 import { registerEndpoint } from '@nuxt/test-utils/runtime'
 import { createError, readBody } from 'h3'
 import type { LoginUser, User } from '~/lib/api/__generated__'
-import { BASE_API_URL } from '~/lib/constants'
+import {useAppConfiger} from "~/lib/constants";
+
 
 export function registerAuthEndpoints() {
+  const { BASE_API_URL } = useAppConfiger()
   registerEndpoint(`${BASE_API_URL}/users/login`, ({
     method: 'POST',
     handler: async (event) => {

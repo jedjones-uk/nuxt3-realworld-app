@@ -1,7 +1,10 @@
 import type { NitroFetchOptions, NitroFetchRequest } from 'nitropack'
-import { BASE_API_URL } from '../constants'
+import {useAppConfiger} from "~/lib/constants";
+
+
 
 export function apiFetch<T>(url: string, options?: NitroFetchOptions<NitroFetchRequest>): Promise<T> {
+  const { BASE_API_URL } = useAppConfiger()
   const normalizedUrl = url.startsWith('/') ? url : `/${url}`
   const fullUrl = `${BASE_API_URL}${normalizedUrl}`
   return $fetch(fullUrl, {

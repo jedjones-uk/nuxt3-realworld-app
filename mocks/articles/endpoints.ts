@@ -2,11 +2,12 @@ import { registerEndpoint } from '@nuxt/test-utils/runtime'
 import { getQuery, readBody } from 'h3'
 import { type ArticleWithStringDates, generateArticles } from './generator'
 import type { CreateArticleRequest, GetArticlesRequest } from '~/lib/api/__generated__'
-import { ARTICLES_PER_PAGE, BASE_API_URL } from '~/lib/constants'
+import {useAppConfiger} from "~/lib/constants";
 
 export const testArticles = generateArticles(22)
 
 export function registerArticlesEndpoints() {
+  const { BASE_API_URL, ARTICLES_PER_PAGE } = useAppConfiger()
   // @TODO: Couldn't find a way to make /articles/:slug/favorite work
   // hardcoding the slug for now
   registerEndpoint(`${BASE_API_URL}/articles/slug-5/favorite`, {

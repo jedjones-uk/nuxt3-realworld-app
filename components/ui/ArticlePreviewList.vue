@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Article } from '~/lib/api/__generated__'
-import { ARTICLES_PER_PAGE } from '~/lib/constants'
+
+const  ARTICLES_PER_PAGE = 5;
 
 const props = defineProps<{
   articles: Article[]

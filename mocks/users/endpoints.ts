@@ -2,7 +2,8 @@ import { registerEndpoint } from '@nuxt/test-utils/runtime'
 import { readBody } from 'h3'
 import { testArticles } from '../articles/endpoints'
 import type { GetProfileByUsername200Response, UpdateCurrentUserRequest } from '~/lib/api/__generated__'
-import { BASE_API_URL } from '~/lib/constants'
+import {useAppConfiger} from "~/lib/constants";
+
 
 export const testCurrentUser = {
   email: 'email@gmail.com',
@@ -14,6 +15,7 @@ export const testCurrentUser = {
 } as UpdateCurrentUserRequest['user']
 
 export function registerUsersEndpoints() {
+  const { BASE_API_URL } = useAppConfiger()
   registerEndpoint(`${BASE_API_URL}/user`, {
     method: 'PUT',
     handler: async (event) => {

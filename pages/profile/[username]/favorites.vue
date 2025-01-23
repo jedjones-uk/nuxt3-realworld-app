@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import type { User } from '~/lib/api/__generated__'
 import { apiFetch } from '~/lib/api/apiFetch'
-import { ARTICLES_PER_PAGE } from '~/lib/constants'
+
+const ARTICLES_PER_PAGE = 5;
 
 defineProps<{ user?: User }>()
 const route = useRoute()

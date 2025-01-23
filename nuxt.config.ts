@@ -52,4 +52,11 @@ export default defineNuxtConfig({
       },
     },
   },
+  runtimeConfig: {
+    public: {
+      appName: 'Conduit',
+      baseApiUrl: 'https://api.realworld.io/api',
+      articlesPerPage: 10
+    }
+  }
 })
